@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Layout</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/Info_styles.css">
+    <link rel="stylesheet" href="css/catalog_styles.css">
+    <link rel="stylesheet" href="css/product.css">
+    <link rel="stylesheet" href="css/all.css">
+    <style>
+        .MyBg .navbar-brand,
+        .MyBg .nav-link {
+            color: white !important;
+            text-decoration: none;
+        }
+
+        .MyBg .nav-link.active {
+            color: #ffffff !important;
+        }
+
+        .MyBg .nav-link:hover {
+            color: #cccccc;
+            /* Для эффекта при наведении */
+        }
+
+        /* Если нужно изменить цвет текста кнопки */
+        .MyBg .btn {
+            color: white;
+            border-color: white;
+        }
+
+        .MyBg .btn:hover {
+            color: #cccccc;
+            border-color: #cccccc;
+        }
+
+        .navbar-toggler {
+            border: none;
+            /* Убираем рамку вокруг кнопки */
+        }
+
+        .navbar-toggler-icon {
+            background-image: none;
+            /* Убираем стандартное изображение */
+            width: 30px;
+            height: 3px;
+            background-color: white;
+            display: block;
+            position: relative;
+        }
+
+        .navbar-toggler-icon::before,
+        .navbar-toggler-icon::after {
+            content: '';
+            width: 30px;
+            height: 3px;
+            background-color: white;
+            position: absolute;
+            left: 0;
+        }
+
+        .navbar-toggler-icon::before {
+            top: -8px;
+            /* Расстояние от верхней полоски */
+        }
+
+        .navbar-toggler-icon::after {
+            top: 8px;
+            /* Расстояние от нижней полоски */
+        }
+
+        .search-form {
+            gap: 0;
+            /* Убирает расстояние между строкой и кнопкой */
+        }
+
+        .form-control {
+            border: none;
+            /* Убираем границу */
+            border-radius: 2px;
+            border-top-right-radius: 0;
+            /* Убираем скругления */
+            border-bottom-right-radius: 0;
+            outline: none;
+            /* Убираем фокусную рамку */
+        }
+
+        .form-control:focus {
+            box-shadow: none;
+            /* Убирает эффект при фокусе */
+        }
+
+        .btn {
+            background-color: #d40000;
+            /* Красный цвет кнопки */
+            color: white;
+            border: none;
+            /* Убираем рамку */
+            border-radius: 2px;
+            border-top-left-radius: 0;
+            /* Убираем скругления */
+            border-bottom-left-radius: 0;
+        }
+
+        .btn:hover {
+            background-color: #c00000;
+            /* Темно-красный цвет при наведении */
+            color: white;
+        }
+
+        .container-fluid,
+        .container {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+
+        @media (max-width: 1300px) {
+            .navbar-brand {
+                padding-left: 20px;
+            }
+
+        }
+
+        @media (max-width: 1300px) {
+            .search-form {
+                padding-right: 20px;
+            }
+        }
+
+        @media (max-width: 1300px) {
+            .n {
+                padding: 20px;
+            }
+        }
+
+        .products {
+            margin-top: 20px;
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(5, 1fr);
+            /* 5 карточек по умолчанию */
+        }
+
+        .product-card {
+            background-color: #ffffff;
+            display: grid;
+            grid-template-rows: repeat(5, minmax(auto, 1fr));
+            height: 380px;
+            padding: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .q {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .price {
+            padding-top: 10px;
+            font-weight: bold;
+            color: red;
+        }
+
+        .button {
+            background-color: red;
+            padding: 2px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .cart_img_btn {
+            height: 20px;
+        }
+
+        /* Медиа-запросы для адаптивности */
+        @media (max-width: 1200px) {
+            .products {
+                grid-template-columns: repeat(4, 1fr);
+                /* 4 карточки */
+            }
+        }
+
+        @media (max-width: 992px) {
+            .products {
+                grid-template-columns: repeat(3, 1fr);
+                /* 3 карточки */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+                /* 2 карточки */
+            }
+        }
+
+        @media (max-width: 700px) {
+            .products {
+                grid-template-columns: 1fr;
+                /* 1 карточка */
+            }
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+    <div class="grid-container">
+
+
+        <div class="header">
+            <div class="norm">
+                <div class="info MaxW">
+                    <div class="dropdown">
+                        <a class="dropdown-button"><img class="city-img img-city" src="img/city.png"
+                                alt="city_img">Одеса<img class="down-img img-down" src="img/down.png"
+                                alt="doen_img"></a>
+                        <div class="dropdown-content">
+                            <p class="item-1 city-name">Ваше місто: <b>Одеса</b> </p>
+                            <input class="item-1" type="text" id="city" name="city" placeholder="Ввеліть ваше місто"
+                                required>
+                            <a href="#">Київ</a>
+                            <a href="#">Дніпро</a>
+                            <a href="#">Харків</a>
+                            <a href="#">Львів</a>
+                            <a class="sel-city" href="#">Одеса</a>
+                            <a href="#">Запоріжжя</a>
+                            <a href="#">Кривий Ріг</a>
+                            <a href="#">Полтава</a>
+                            <a href="#">Хмельницький</a>
+                            <a href="#">Вінниця</a>
+                            <a href="#">Рівне</a>
+                            <a href="#">Тернопіль</a>
+                            <a href="#">Чернівці</a>
+                            <a href="#">Житомир</a>
+                            <a href="#">Луцьк</a>
+                            <a href="#">Івано-Франківськ</a>
+                            <a href="#">Кропівницький</a>
+                            <a href="#">Черкаси</a>
+                            <a href="#">Ужгород</a>
+                            <p class="item-1 help">Вибір міста допоможе відображати актуальну інформацію про наявність
+                                товарів
+                                ми не крадемо ваші данні і точно не приідемо до вас в гості</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <nav>
+                            <ul>
+                                <li><a href="#">Магазин</a></li>
+                                <li><a href="#">Акції</a></li>
+                                <li><a href="#">Бонуси</a></li>
+                                <li><a href="#">Обмін</a></li>
+                                <li><a href="#">Покупцям</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <div class="dropdown">
+                        <a class="contact" style="margin-right: 15px;"><img class="phone-img img-phone"
+                                src="img/phone.png" alt="phone_img">
+                            Зв'язатися
+                            з
+                            нами<img class="down-img img-down" src="img/down.png" alt="doen_img"></a>
+
+                        <div class="dropdown-content2">
+                            <a href="#"><img class="viber-img img-contact" src="img/viber.png" alt="viber_img">Viber</a>
+                            <a href="#"><img class="telegram-img img-contact" src="img/telegram.png"
+                                    alt="telegram_img">Telegram</a>
+                            <a href="#"><img class="telephone-img img-contact" src="img/telephone.png"
+                                    alt="telephone_img">1
+                                100
+                                100 100</a>
+                            <a href="#"><img class="telephone-img img-contact" src="img/telephone.png"
+                                    alt="telephone_img">2
+                                200
+                                200 200</a>
+
+                            <p class="help">Гаряча лінія<br>
+                                На зв'язку з вами<br>
+                                щодня з 7:00 до 23:00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <nav class=" MyBg ">
+                <div class="container-fluid MaxW">
+
+                    <nav class="navbar navbar-expand-lg ">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" href="#">Logo</a>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" aria-current="page" href="#"><img
+                                                src="img/account.png" alt="" style="height: 18px;"></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link active" aria-current="page" href="#"><img src="img/like.png"
+                                                alt="" style="height: 18px;"></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link active" aria-current="page" href="index2_form/index2.html"><img src="img/cart.png"
+                                                alt="" style="height: 18px;"></a>
+                                    </li>
+
+
+
+                                </ul>
+                                <form class="d-flex search-form" role="search">
+                                    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                                    <button class="btn" type="submit">Search</button>
+                                </form>
+                            </div>
+                        </div>
+                    </nav>
+
+
+                </div>
+
+
+        </div>
+        </nav>
+
+    </div>
+    </nav>
+    </div>
+    </div>
+
+
+
+    <div class="n">
+        <div class="normii r" style="margin-top: 10px;">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Головна</a></li>
+                    <li class="breadcrumb-item"><a href="#">КатегоріЇ</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Топ</li>
+                </ol>
+            </nav>
+        </div>
+
+        <div class="normii" style="font-weight: bold; font-size: 16px; padding-top: 10px; padding-bottom: 10px;">Лідери
+            продажу</div>
+
+
+        <div class="ad-row normii">-50%</div>
+
+        <div class="products normii">
+            <div class="product-card">
+                <img class="card1" src="card1.png" alt="card_img" style="width: 100%;">
+                <div>Xiaomi 14T 12/256GB Titan Black</div>
+                <div style="background-color: #000000; width: 80%; height: 30px;"></div>
+                <div class="q">* * * * * </div>
+                <div class="q">
+                    <div class="price">1 700$</div><button class="button"><img src="img/cart.png" alt="cart_img"
+                            class="cart_img_btn"></button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img class="card1" src="card1.png" alt="card_img" style="width: 100%;">
+                <div>Xiaomi 14T 12/256GB Titan Black</div>
+                <div style="background-color: #000000; width: 80%; height: 30px;"></div>
+                <div class="q">* * * * * </div>
+                <div class="q">
+                    <div class="price">1 700$</div><button class="button"><img src="img/cart.png" alt="cart_img"
+                            class="cart_img_btn"></button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img class="card1" src="card1.png" alt="card_img" style="width: 100%;">
+                <div>Xiaomi 14T 12/256GB Titan Black</div>
+                <div style="background-color: #000000; width: 80%; height: 30px;"></div>
+                <div class="q">* * * * * </div>
+                <div class="q">
+                    <div class="price">1 700$</div><button class="button"><img src="img/cart.png" alt="cart_img"
+                            class="cart_img_btn"></button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img class="card1" src="card1.png" alt="card_img" style="width: 100%;">
+                <div>Xiaomi 14T 12/256GB Titan Black</div>
+                <div style="background-color: #000000; width: 80%; height: 30px;"></div>
+                <div class="q">* * * * * </div>
+                <div class="q">
+                    <div class="price">1 700$</div><button class="button"><img src="img/cart.png" alt="cart_img"
+                            class="cart_img_btn"></button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img class="card1" src="card1.png" alt="card_img" style="width: 100%;">
+                <div>Xiaomi 14T 12/256GB Titan Black</div>
+                <div style="background-color: #000000; width: 80%; height: 30px;"></div>
+                <div class="q">* * * * * </div>
+                <div class="q">
+                    <div class="price">1 700$</div><button class="button"><img src="img/cart.png" alt="cart_img"
+                            class="cart_img_btn"></button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img class="card1" src="card1.png" alt="card_img" style="width: 100%;">
+                <div>Xiaomi 14T 12/256GB Titan Black</div>
+                <div style="background-color: #000000; width: 80%; height: 30px;"></div>
+                <div class="q">* * * * * </div>
+                <div class="q">
+                    <div class="price">1 700$</div><button class="button"><img src="img/cart.png" alt="cart_img"
+                            class="cart_img_btn"></button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img class="card1" src="card1.png" alt="card_img" style="width: 100%;">
+                <div>Xiaomi 14T 12/256GB Titan Black</div>
+                <div style="background-color: #000000; width: 80%; height: 30px;"></div>
+                <div class="q">* * * * * </div>
+                <div class="q">
+                    <div class="price">1 700$</div><button class="button"><img src="img/cart.png" alt="cart_img"
+                            class="cart_img_btn"></button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img class="card1" src="card1.png" alt="card_img" style="width: 100%;">
+                <div>Xiaomi 14T 12/256GB Titan Black</div>
+                <div style="background-color: #000000; width: 80%; height: 30px;"></div>
+                <div class="q">* * * * * </div>
+                <div class="q">
+                    <div class="price">1 700$</div><button class="button"><img src="img/cart.png" alt="cart_img"
+                            class="cart_img_btn"></button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img class="card1" src="card1.png" alt="card_img" style="width: 100%;">
+                <div>Xiaomi 14T 12/256GB Titan Black</div>
+                <div style="background-color: #000000; width: 80%; height: 30px;"></div>
+                <div class="q">* * * * * </div>
+                <div class="q">
+                    <div class="price">1 700$</div><button class="button"><img src="img/cart.png" alt="cart_img"
+                            class="cart_img_btn"></button>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+    <div class="bgF">
+        <div class="footer normii">
+            <div class="footer-row"><a href="#">Вакансії</a></div>
+            <div class="footer-row"><a href="#">Новини</a></div>
+            <div class="footer-row"><a href="#">Про нас</a></div>
+            <div class="footer-row"><a href="#">Мережа магазинів</a></div>
+            <div class="footer-row"><a href="#">Контакти</a></div>
+
+            <div class="footer-row"><a href="#">Доставка та оплата</a></div>
+            <div class="footer-row"><a href="#">Гарантія та сервіс</a></div>
+            <div class="footer-row"><a href="#">Питання та відповіді</a></div>
+            <div class="footer-row"><a href="#">Умови сайту</a></div>
+            <div class="footer-row"><a href="#">Питання та відповіді</a></div>
+            <div class="footer-row"><a href="#">Аудіокниги</a></div>
+
+            <div class="footer-row"><a href="#">Оплатити частинами</a></div>
+            <div class="footer-row"><a href="#">Купити у кредит</a></div>
+            <div class="footer-row"><a href="#">Подарункові сертифікати</a></div>
+            <div class="footer-row"><a href="#">Експерт Онлайн</a></div>
+
+
+            <div class="footer-row"><a href="#">Експерт Онлайн</a></div>
+            <div class="footer-row"><a href="#">Сервіси</a></div>
+            <div class="footer-row"><a href="#">Аудіокниги</a></div>
+            <div class="footer-row"><a href="#">Бібліотека</a></div>
+            <div class="footer-row"></div>
+
+            <div class="footer-row"><a href="#">Маркетплейс</a></div>
+            <div class="footer-row"><a href="#">Стати партнером</a></div>
+            <div class="footer-row"><a href="#"></a></div>
+            <div class="footer-row"><a href="#">Корпоративний відділ</a></div>
+            <div class="footer-row"></div>
+            <div class="footer-row"></div>
+            <div class="footer-row"></div>
+
+            <div class="footer-row footer-single-column">
+                <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+                    <img src="Instagram_icon.png.webp" style="height: 50px; margin: 20px;" alt="Instagram">
+                </a>
+                <a href="https://www.youtube.com" target="_blank" aria-label="YouTube">
+                    <img src="w512h5121380376600FlurryYouTube.png" style="height: 55px; margin: 20px;" alt="YouTube">
+                </a>
+                <a href="https://t.me/username" target="_blank" aria-label="Telegram">
+                    <img src="telegram_icon-icons.png" style="height: 50px; border-radius: 7px; margin: 20px;"
+                        alt="Telegram">
+                </a>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

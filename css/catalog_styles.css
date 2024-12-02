@@ -1,0 +1,68 @@
+.catalog{
+    margin: 20px;
+    border-radius: 2px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2)
+}
+
+.catalog nav ul{
+    display: inline-block;
+}
+
+.normi {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+}
+
+.catalog nav ul li a{
+    color: rgb(92, 92, 92);
+}
+
+.catalog {
+    position: relative;
+    z-index: 10;
+    border-radius: 2px;
+    width: 250px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease;
+}
+
+.catalog nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: block;
+}
+
+.catalog nav ul li {
+    padding: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.catalog nav ul li a {
+    font-size: 12px;
+    color: rgb(92, 92, 92);
+    text-decoration: none;
+    display: block;
+    transition: color 0.3s ease, font-weight 0.3s ease;
+}
+
+.catalog nav ul li:hover {
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+}
+
+.catalog nav ul li:hover a {
+    font-weight: bold;
+    color: black;
+}
+
+.catalog:hover {
+    box-shadow: 0px 0px 0px 5000px rgba(25, 24, 36, 0.5);
+}
+
+@media (max-width: 1200px) {
+    .catalog {
+        display: none;
+    }
+}
+

@@ -1,0 +1,237 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-rows: auto auto 1fr auto auto;
+    grid-template-columns: auto 1fr;
+
+}
+
+.header,
+.search,
+.footer,
+.ad-row {
+    grid-column: 1 / -1;
+    color: rgb(0, 0, 0);
+}
+
+.header {
+    background-color: #f44336;
+}
+
+.search {
+    background-color: #303030;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+.ad-sidebar {
+    margin: 20px;
+    background-color: #FF9800;
+}
+
+.ad-row {
+    background-color: #000000;
+    color: #ff1100;
+    font-weight: bold;
+    padding: 7px;
+    font-size: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.logo {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 2em;
+    color: white;
+    background-clip: text;
+    text-decoration: none;
+}
+
+.normii {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* Увеличиваем ширину строки поиска */
+
+
+
+
+
+/* Чтобы форма поиска оставалась внутри блока и не смещалась */
+.MyModalBtn {
+    background-color: #d10f00;
+}
+
+.MyModalBtn:hover {
+    background-color: #a60b00;
+    color: #ffffff;
+}
+
+.bgF {
+    width: 100%;
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #303030;
+}
+
+.footer {
+    font-size: 13px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    /* 5 столбцов одинаковой ширины */
+    grid-template-rows: repeat(5, auto) 1fr;
+    /* 5 рядов и 1 последний ряд */
+}
+
+@media (max-width: 900px) {
+    .footer {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    text-align: center;
+    
+}
+
+}
+
+.footer-row {
+    padding: 2px;
+}
+
+.footer-single-column {
+    margin-top: 10px;
+    grid-column: 1 / -1;
+    /* Объединяет все столбцы в одном ряду */
+    text-align: center;
+    /* Выровнять текст вправо */
+    border-top: 1px solid rgb(101, 101, 101);
+    color: #fff;
+    /* Добавим паддинг для последнего ряда */
+}
+
+.footer a {
+    color: rgb(183, 181, 181);
+    text-decoration: none;
+}
+
+.breadcrumb-item a {
+color: gray; /* Серый цвет для всех ссылок */
+text-decoration: none;
+}
+
+.breadcrumb-item.active {
+color: black; /* Чёрный или любой другой цвет для активного пункта */
+}
+
+.breadcrumb-item a:hover {
+color: darkgray; /* Цвет при наведении */
+}
+
+
+
+
+.MyBg {
+    background-color: rgb(47, 47, 49);
+}
+
+
+
+.catalog-btn {
+    margin-left: 5em;
+    margin-right: 5em;
+    padding: 0.35em;
+    padding-left: 2em;
+    padding-right: 2em;
+    background-color: rgb(171, 0, 0);
+    border: none;
+    border-radius: 0.25em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1em;
+    color: rgb(255, 255, 255);
+}
+
+.catalog-img {
+    width: 1.1em;
+    height: 1.1em;
+    margin-right: 0.8em;
+}
+
+@media (max-width: 500px) {
+
+    .account-icon {
+        display: none;
+    }
+
+    .like-icon {
+        display: none;
+    }
+}
+
+@media (max-width: 1025px) {
+    .wallet-icon {
+        display: none;
+    }
+}
+
+@media (max-width: 900px) {
+    .catalog-btn {
+        display: none;
+    }
+
+    .logo {
+        display: none;
+    }
+}
+
+.MaxW {
+    max-width: 1300px;
+}
+
+
+
+
+
+.logo {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 2em;
+    color: white;
+    background-clip: text;
+    text-decoration: none;
+}
+
+.d{
+    display: flex;
+    justify-content: space-between;
+}
+
+.products {
+    display: grid;
+    gap: 20px; /* Расстояние между карточками */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.product-card {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+}
+
