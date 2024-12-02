@@ -140,7 +140,7 @@
         .products {
             margin-top: 20px;
             display: grid;
-            gap: 20px;
+            gap: 2px;
             grid-template-columns: repeat(5, 1fr);
             /* 5 карточек по умолчанию */
         }
@@ -169,7 +169,7 @@
             background-color: red;
             padding: 2px 15px;
             border: none;
-            border-radius: 5px;
+            border-radius: 3px;
             cursor: pointer;
         }
 
@@ -205,6 +205,28 @@
                 /* 1 карточка */
             }
         }
+
+        .product-card {
+        background-color: #ffffff;
+        display: grid;
+        grid-template-rows: repeat(5, minmax(auto, 1fr));
+        height: 380px;
+        padding: 10px;
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out; /* Плавная анимация увеличения */
+    }
+
+    /* Эффект увеличения при наведении */
+    .product-card:hover {
+        transform: scale(1.02); /* Увеличение на 5% */
+        z-index: 10; /* Поднятие карточки, чтобы она не затирала другие */
+    }
+
+    /* Стили для изображений в карточках */
+   
+
+    /* Эффект увеличения изображения */
+  
     </style>
 
 
@@ -258,7 +280,7 @@
                                 <li><a href="#">Акції</a></li>
                                 <li><a href="#">Бонуси</a></li>
                                 <li><a href="#">Обмін</a></li>
-                                <li><a href="#">Покупцям</a></li>
+                                <li><a href="#">Новини</a></li>
                             </ul>
                         </nav>
                     </div>
