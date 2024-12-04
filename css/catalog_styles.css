@@ -1,68 +1,136 @@
-.catalog{
-    margin: 20px;
-    border-radius: 2px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2)
-}
-
-.catalog nav ul{
-    display: inline-block;
-}
-
-.normi {
-    max-width: 1400px;
-    margin: 0 auto;
+.BgCategory { 
+    background-color: #ffffff;  /* Белый фон */
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.catalog nav ul li a{
-    color: rgb(92, 92, 92);
+.grid-container1 {
+    display: grid;
+    grid-template-columns: 1fr 4fr;  /* Два столбца с различными размерами */
+    width: 100%;
 }
 
-.catalog {
-    position: relative;
-    z-index: 10;
-    border-radius: 2px;
-    width: 250px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-    transition: box-shadow 0.3s ease;
+.item1 {
+    width: 230px;
+    padding: 0;  /* Убираем отступы для контейнера */
+    border-radius: 3px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Легкая тень для блока */
 }
 
-.catalog nav ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    display: block;
+.item1:hover{
+    box-shadow: 0 0 0 10000px rgba(20, 20, 20, 0.8);
+    z-index: 1000;
 }
 
-.catalog nav ul li {
-    padding: 5px;
-    transition: background-color 0.3s ease;
+.category-menu {
+    padding: 0;  /* Убираем внутренние отступы */
+    margin: 0;  /* Убираем внешние отступы */
+    list-style: none; /* Убираем маркеры (точки) */
 }
 
-.catalog nav ul li a {
+.category-item {
+    color: rgb(40, 40, 40);
     font-size: 12px;
-    color: rgb(92, 92, 92);
-    text-decoration: none;
-    display: block;
-    transition: color 0.3s ease, font-weight 0.3s ease;
+    padding-left: 15px; /* Увеличиваем внутренний отступ для увеличения области */
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: 0;  /* Убираем внешние отступы */
+    cursor: pointer;
+    border-radius: 5px;
+    display: block;  /* Заставляем каждый элемент занимать всю ширину */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.catalog nav ul li:hover {
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-}
-
-.catalog nav ul li:hover a {
+.category-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    color: #000000;  /* Белый текст */
     font-weight: bold;
-    color: black;
 }
 
-.catalog:hover {
-    box-shadow: 0px 0px 0px 5000px rgba(25, 24, 36, 0.5);
-}
+@media (max-width: 900px) {
+    .grid-containe1 {
+        grid-template-columns: 1fr;  /* Один столбец для экранов меньше 900px */
+    }
 
-@media (max-width: 1200px) {
-    .catalog {
-        display: none;
+    .item1 {
+        display: none;  /* Скрытие первой ячейки на мобильных */
+    }
+
+    .BgCategory {
+        height: auto;
     }
 }
 
+.item2{
+    height: 100%;
+}
+
+
+.item2 {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+
+.grid-container1 {
+    display: grid;
+    grid-template-columns: 1fr 4fr; /* Изначально два столбца */
+    width: 100%;
+}
+
+.item1 {
+    width: 230px;
+    padding: 0;
+    border-radius: 3px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.item2 {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+/* Убедимся, что карусель растягивается */
+.item2 img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Адаптивное поведение */
+@media (max-width: 1300px) {
+    .grid-container1 {
+        grid-template-columns: 1fr; /* Один столбец, когда экран меньше 900px */
+    }
+
+    .item1 {
+        display: none;
+    }
+
+    .item2 {
+        width: 100%;
+        height: auto; /* Позволяем элементу расшириться */
+    }
+
+    .carousel-inner img {
+        width: 100%;
+        object-fit: cover;
+    }
+}

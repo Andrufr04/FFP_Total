@@ -24,7 +24,7 @@ body {
 }
 
 .header {
-    background-color: #f44336;
+
 }
 
 .search {
@@ -37,12 +37,12 @@ body {
 
 .ad-sidebar {
     margin: 20px;
-    background-color: #FF9800;
+
 }
 
 .ad-row {
-    background-color: #000000;
-    color: #ff1100;
+    background-color: #1e1e1e;
+    color: #ae0c00;
     font-weight: bold;
     padding: 7px;
     font-size: 35px;
@@ -66,13 +66,6 @@ body {
     margin: 0 auto;
 }
 
-/* Увеличиваем ширину строки поиска */
-
-
-
-
-
-/* Чтобы форма поиска оставалась внутри блока и не смещалась */
 .MyModalBtn {
     background-color: #d10f00;
 }
@@ -141,14 +134,9 @@ color: black; /* Чёрный или любой другой цвет для а�
 color: darkgray; /* Цвет при наведении */
 }
 
-
-
-
 .MyBg {
     background-color: rgb(47, 47, 49);
 }
-
-
 
 .catalog-btn {
     margin-left: 5em;
@@ -195,22 +183,15 @@ color: darkgray; /* Цвет при наведении */
         display: none;
     }
 
-    .logo {
-        display: none;
-    }
 }
 
 .MaxW {
     max-width: 1300px;
 }
 
-
-
-
-
 .logo {
     font-family: 'Permanent Marker', cursive;
-    font-size: 2em;
+    font-size: 1.5em;
     color: white;
     background-clip: text;
     text-decoration: none;
@@ -221,17 +202,279 @@ color: darkgray; /* Цвет при наведении */
     justify-content: space-between;
 }
 
-.products {
-    display: grid;
-    gap: 20px; /* Расстояние между карточками */
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+
+.MyBg .navbar-brand,
+.MyBg .nav-link {
+    color: white !important;
+    text-decoration: none;
 }
 
-.product-card {
-    background-color: #f9f9f9;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+.MyBg .nav-link.active {
+    color: #ffffff !important;
+}
+
+.MyBg .nav-link:hover {
+    color: #cccccc;
+    /* Для эффекта при наведении */
+}
+
+/* Если нужно изменить цвет текста кнопки */
+.MyBg .btn {
+    color: white;
+    border-color: white;
+}
+
+.MyBg .btn:hover {
+    color: #cccccc;
+    border-color: #cccccc;
+}
+
+.navbar-toggler {
+    border: none;
+    /* Убираем рамку вокруг кнопки */
+}
+
+.navbar-toggler-icon {
+    background-image: none;
+    /* Убираем стандартное изображение */
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    display: block;
+    position: relative;
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+    content: '';
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    position: absolute;
+    left: 0;
+}
+
+.navbar-toggler-icon::before {
+    top: -8px;
+    /* Расстояние от верхней полоски */
+}
+
+.navbar-toggler-icon::after {
+    top: 8px;
+    /* Расстояние от нижней полоски */
+}
+
+.search-form {
+    margin-left: 20px;
+    gap: 0;
+    /* Убирает расстояние между строкой и кнопкой */
+}
+
+.form-control {
+    border: none;
+    /* Убираем границу */
+    border-radius: 2px;
+    border-top-right-radius: 0;
+    /* Убираем скругления */
+    border-bottom-right-radius: 0;
+    outline: none;
+    /* Убираем фокусную рамку */
+}
+
+.form-control:focus {
+    box-shadow: none;
+    /* Убирает эффект при фокусе */
+}
+
+.btn {
+    background-color: #d40000;
+    /* Красный цвет кнопки */
+    color: white;
+    border: none;
+    /* Убираем рамку */
+    border-radius: 2px;
+    border-top-left-radius: 0;
+    /* Убираем скругления */
+    border-bottom-left-radius: 0;
+}
+
+.btn:hover {
+    background-color: #c00000;
+    /* Темно-красный цвет при наведении */
+    color: white;
+}
+
+.container-fluid,
+.container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+@media (max-width: 1400px) {
+    .navbar-brand {
+        padding-left: 20px;
+    }
+
+}
+
+@media (max-width: 1400px) {
+    .search-form {
+        padding-right: 20px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .n {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+
+
+.q {
+    display: flex;
+    justify-content: space-between;
+}
+
+.price {
+    padding-top: 10px;
+    font-weight: bold;
+    color: rgb(205, 0, 0);
+}
+
+.button {
+    background-color: rgb(193, 0, 0);
+    padding: 2px 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+
+.normiii {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
     text-align: center;
 }
+
+.menu-button {
+    margin-right: 2px;
+    border: 1px solid #d0d0d0;
+    padding: 5px 10px;
+    text-align: center;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    border-radius: 3px;
+    color: #3b3b3b;
+    transition: all 0.3s ease-in-out;
+}
+
+.menu-button:hover {
+    background-color: #ccc;
+}
+
+.menu-button:hover{
+    background-color: white;
+    color:#a30000;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.headerImg{
+    margin-left: 5px;
+    width: 40px;
+    text-align: center;
+    margin-right: 5px;
+}
+
+.headerImg:hover{
+    background-color: #3b3b3b;
+    border-radius: 3px;
+}
+
+.no {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+    
+}
+
+.no::-webkit-scrollbar {
+    display: none;
+}
+
+
+.btn {
+    border-radius: 3px;
+}
+
+.custom-gray-btn {
+    background-color: #d3d3d3;
+    border: 1px solid #ccc;
+    color: #ffffff;
+}
+
+.custom-gray-btn-outline {
+    border: 1px solid #ccc;
+    background-color: transparent;
+    color: #555;
+}
+
+.form-control {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+
+.search-form {
+    display: flex; /* Используем flexbox для выравнивания */
+    margin: 0; /* Убираем отступы у формы */
+}
+
+.search-form .form-control {
+    border-right: 0; /* Убираем правую границу у поля ввода, чтобы не было линии между полем и кнопкой */
+    border-radius: 3px 0 0 3px; /* Округляем только левый угол */
+}
+
+.search-form .btn {
+    border-radius: 0 3px 3px 0; /* Округляем только правый угол кнопки */
+    border-left: 0; /* Убираем левую границу у кнопки */
+    padding: 0.375rem 0.75rem; /* Убираем лишние отступы */
+}
+
+.search-form button img {
+    height: 16px; /* Устанавливаем размер иконки */
+}
+
+/* Скрыть строку поиска на мобильных устройствах */
+@media (max-width: 768px) {
+    .search-form {
+        display: none; /* Скрыть строку поиска на экранах меньше 768px */
+    }
+
+    .navbar-collapse .search-form {
+        display: block; /* Показывать строку поиска внутри бургер-меню */
+    }
+}
+
+/* Сделать так, чтобы строка поиска была внутри бургер-меню */
+@media (max-width: 768px) {
+    .navbar-collapse {
+        flex-direction: column;
+    }
+
+    .navbar-collapse .search-form {
+        margin-top: 15px; /* Добавить отступ сверху для удобства */
+    }
+}
+
+.search-form{
+    margin-left: 20px;
+}
+
 
